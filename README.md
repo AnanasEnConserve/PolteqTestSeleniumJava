@@ -13,6 +13,12 @@ Open a command window and run:
 This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the `RunCukesTest`
 class tells JUnit to kick off Cucumber.
 
+NB: It is required to specify the environment and browser type in your run command. These come from enums which can be found in the helper package.
+Example:
+    
+    mvn clean test -mvn test -Denv=Development -Ddriver=ChromeLocal -Dcucumber.filter.tags="@test"
+
+
 ## Overriding options
 
 The Cucumber runtime parses command line options to know what features to run, where the glue code lives, what plugins to use etc.
