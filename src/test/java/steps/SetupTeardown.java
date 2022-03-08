@@ -5,13 +5,11 @@ import helpers.Environment;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 
 public class SetupTeardown {
 
     public static WebDriver driver;
-    public static WebDriverManager wdm;
 
     @Before
     public void setup(Scenario scenario){
@@ -24,6 +22,7 @@ public class SetupTeardown {
 
         //Load initial page
         driver.get(Environment.valueOf(System.getProperty("env")).getApplicationUrl());
+        driver.manage().window().fullscreen();
     }
 
 

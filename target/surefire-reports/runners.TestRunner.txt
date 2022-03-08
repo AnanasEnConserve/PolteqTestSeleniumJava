@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: runners.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.686 sec
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.81 sec <<< FAILURE!
+Should be able to load page(Test Login functionality)  Time elapsed: 4.651 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'what' is undefined.
+You can implement this step using the snippet(s) below:
+
+@Then("what")
+public void what() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

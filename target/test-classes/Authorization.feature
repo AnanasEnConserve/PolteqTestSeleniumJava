@@ -6,5 +6,5 @@ Feature: Test Login functionality
 
   @test
   Scenario: Should be able to load page
-    Given I have done this correctly
-    Then this should work
+    Given aap
+    Then what
