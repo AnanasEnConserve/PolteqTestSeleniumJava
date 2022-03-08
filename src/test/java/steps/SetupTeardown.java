@@ -1,5 +1,6 @@
 package steps;
 
+import abstraction.PageObject;
 import helpers.BrowserDriver;
 import helpers.Environment;
 import io.cucumber.java.After;
@@ -20,6 +21,8 @@ public class SetupTeardown {
         //Print some information about the test being run
         System.out.println("Running scenario " + scenario.getName());
 
+        //Set driver
+        new PageObject(driver);
         //Load initial page
         driver.get(Environment.valueOf(System.getProperty("env")).getApplicationUrl());
         driver.manage().window().fullscreen();

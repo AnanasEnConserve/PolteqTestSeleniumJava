@@ -4,7 +4,7 @@ Feature: Test Login functionality
 
 ########################################################
 
-  @test
+  @example
   Scenario: Should be able to load page
-    Given aap
-    Then what
+    Given I have done this correctly
+    Then this should work

@@ -1,4 +1,5 @@
-runners\TestRunner.class
 steps\DriverManager.class
 steps\AuthorizationFeature.class
 steps\SetupTeardown.class
+runners\TestRunner.class
+steps\TestFeature.class
