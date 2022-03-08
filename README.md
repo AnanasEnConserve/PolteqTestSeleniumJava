@@ -16,7 +16,7 @@ class tells JUnit to kick off Cucumber.
 NB: It is required to specify the environment and browser type in your run command. These come from enums which can be found in the helper package.
 Example:
     
-    mvn clean test -mvn test -Denv=Development -Ddriver=ChromeLocal -Dcucumber.filter.tags="@test"
+    mvn clean test -Denv=Development -Ddriver=ChromeLocal -Dcucumber.filter.tags="@test"
 
 
 ## Overriding options
