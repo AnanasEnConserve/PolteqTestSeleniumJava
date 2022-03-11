@@ -4,15 +4,15 @@ public enum Environment {
     Development("dev",
             "https://npto-dev.polteq-testing.com/index.php",
             "https://npto-dev.polteq-testing.com/admin123",
-            "https://adminer-dev.polteq-testing.com/??????"),
+            "https://adminer-npto-dev.polteq-testing.com"),
     Acceptance( "acc",
             "https://npto-acc.polteq-testing.com/index.php",
             " https://npto-acc.polteq-testing.com/admin123",
-            "https://adminer-acc.polteq-testing.com/"),
+            "https://adminer-npto-acc.polteq-testing.com/"),
     Production("prod",
             "https://npto-prod.polteq-testing.com/index.php",
             "https://npto-prod.polteq-testing.com/admin123",
-                    "https://adminer-prod.polteq-testing.com/??????");
+                    "https://adminer-npto.polteq-testing.com/");
 
     private String name;
     private String applicationUrl;
