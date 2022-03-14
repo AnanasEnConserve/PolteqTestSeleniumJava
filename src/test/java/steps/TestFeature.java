@@ -21,5 +21,10 @@ public class TestFeature extends GeneralTest{
         homePage.signUp("Jan", "12345");
     }
 
+    @Then("This step should fail")
+    public void fail(){
+        softAssertions.assertThat(false).isTrue();
+        softAssertions.assertAll();
+    }
 
 }

@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="7.049">
-    <testcase classname="test" name="Click on sign up button" time="6.92">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="8.796">
+    <testcase classname="Test Login functionality" name="Click on sign up button" time="5.857">
         <system-out>
             <![CDATA[Given I am on the homepage..................................................passed
 Then I should be able to click the button...................................passed
 ]]>
         </system-out>
+    </testcase>
+    <testcase classname="Test if screenshot gets added on test fail" name="Expect fail and see screenshot in report" time="2.8">
+        <failure message="&#13;&#10;The following assertion failed:&#13;&#10;1) &#13;&#10;Expecting value to be true but was false&#13;&#10;at TestFeature.fail(TestFeature.java:26)&#13;&#10;" type="org.assertj.core.api.SoftAssertionError">
+            <![CDATA[Given I am on the homepage..................................................passed
+Then This step should fail..................................................failed
+
+StackTrace:
+org.assertj.core.api.SoftAssertionError: 
+The following assertion failed:
+1) 
+Expecting value to be true but was false
+at TestFeature.fail(TestFeature.java:26)
+
+	at org.assertj.core.error.AssertionErrorCreator.multipleSoftAssertionsError(AssertionErrorCreator.java:75)
+	at org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:38)
+	at org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:43)
+	at steps.TestFeature.fail(TestFeature.java:27)
+	at ✽.This step should fail(file:///C:/Users/Arnout%20van%20Heereveld/Documents/testFramework/PolteqTestSeleniumJava/src/test/resources/FailingTest.feature:7)
+]]>
+        </failure>
     </testcase>
 </testsuite>
