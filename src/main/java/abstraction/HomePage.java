@@ -21,20 +21,20 @@ public class HomePage extends PageObject {
     }
 
     public Boolean isHeaderLoaded(){
-        WaitAction.WaitForVisibleElement(driver, 10, header);
+        WaitAction.waitForVisibleElement(driver, 10, header);
         return driver.findElement(header).isDisplayed();
     }
 
     public Boolean isSomethingLoaded(){
-        WaitAction.WaitForVisibleElement(driver, 10, nonexistent);
+        WaitAction.waitForVisibleElement(driver, 10, nonexistent);
         return driver.findElement(nonexistent).isDisplayed();
     }
 
     public void signUp(String username, String password){
-        WaitAction.WaitAndClick(driver, 10, signUpButton);
-        WaitAction.WaitAndSendkeys(driver, 10, emailField, username);
-        WaitAction.WaitAndSendkeys(driver, 10, passwordField, password);
-        WaitAction.WaitAndClick(driver, 10, submitLoginButton);
+        WaitAction.waitAndClick(driver, 10, signUpButton);
+        WaitAction.waitAndSendkeys(driver, 10, emailField, username);
+        WaitAction.waitAndSendkeys(driver, 10, passwordField, password);
+        WaitAction.waitAndClick(driver, 10, submitLoginButton);
     }
 
 

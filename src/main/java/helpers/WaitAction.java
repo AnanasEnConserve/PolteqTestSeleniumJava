@@ -11,8 +11,8 @@ import java.util.function.Function;
 public class WaitAction {
 
 
-    public static void WaitAndClick(WebDriver driver, int timeInSeconds, By locator){
-        WaitAction.WaitForElementToBeActive(driver, timeInSeconds, locator);
+    public static void waitAndClick(WebDriver driver, int timeInSeconds, By locator){
+        WaitAction.waitForElementToBeActive(driver, timeInSeconds, locator);
 
         for(int attempts=0; attempts<=1000; attempts++){
             try{
@@ -26,7 +26,7 @@ public class WaitAction {
     }
 
 
-    public static void WaitForVisibleElement(WebDriver driver, int timeInSeconds, By locator){
+    public static void waitForVisibleElement(WebDriver driver, int timeInSeconds, By locator){
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(timeInSeconds))
                 .pollingEvery(Duration.ofMillis(500))
@@ -40,7 +40,7 @@ public class WaitAction {
         });
     }
 
-    public static void WaitForElementToBeActive(WebDriver driver, int timeInSeconds, By locator){
+    public static void waitForElementToBeActive(WebDriver driver, int timeInSeconds, By locator){
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(timeInSeconds))
                 .pollingEvery(Duration.ofMillis(500))
@@ -50,8 +50,8 @@ public class WaitAction {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
     }
 
-    public static void WaitAndSendkeys(WebDriver driver, int timeInSeconds, By locator, String keys){
-        WaitAction.WaitForElementToBeActive(driver, timeInSeconds, locator);
+    public static void waitAndSendkeys(WebDriver driver, int timeInSeconds, By locator, String keys){
+        WaitAction.waitForElementToBeActive(driver, timeInSeconds, locator);
 
         for(int attempts=0; attempts<=1000; attempts++){
             try{
