@@ -8,6 +8,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class SetupTeardown {
 
     public static WebDriver driver;
@@ -17,7 +20,9 @@ public class SetupTeardown {
         System.out.println("running before ");
         //Get driver
         driver = DriverManager.getDriver(BrowserDriver.valueOf(System.getProperty("driver")));
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         //Print some information about the test being run
         System.out.println("Running scenario " + scenario.getName());
 
