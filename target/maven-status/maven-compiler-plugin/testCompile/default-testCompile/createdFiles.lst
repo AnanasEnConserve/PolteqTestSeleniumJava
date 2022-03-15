@@ -1,6 +1,0 @@
-steps\DriverManager.class
-steps\AuthorizationFeature.class
-steps\GeneralTest.class
-steps\SetupTeardown.class
-runners\TestRunner.class
-steps\TestFeature.class

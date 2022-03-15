@@ -10,6 +10,7 @@ import java.util.function.Function;
 
 public class WaitAction {
 
+    private static final By loadingSpinner = By.className("spinner");
 
     public static void waitAndClick(WebDriver driver, int timeInSeconds, By locator){
         WaitAction.waitForElementToBeActive(driver, timeInSeconds, locator);
@@ -63,4 +64,13 @@ public class WaitAction {
             }
         }
     }
+
+    public static void waitForLoadingToComplete(WebDriver driver, int timeInSeconds){
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofMillis(500))
+                .withTimeout(Duration.ofSeconds(timeInSeconds));
+
+        wait.until(ExpectedConditions.numberOfElementsToBeLessThan(loadingSpinner, 1));
+    }
+
 }
