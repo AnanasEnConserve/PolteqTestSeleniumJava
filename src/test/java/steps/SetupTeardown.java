@@ -3,9 +3,12 @@ package steps;
 import abstraction.PageObject;
 import helpers.BrowserDriver;
 import helpers.Environment;
+import helpers.TimeStampHelper;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -41,6 +44,12 @@ public class SetupTeardown {
 
         System.out.println("Ending scenario " + scenario.getName());
         System.out.println("Status " + scenario.getStatus());
+
+        //Take screenshot if test failed
+        if (scenario.isFailed()){
+           final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+           scenario.attach(screenshot, "image/png", "Failed test \"" + scenario.getName() + "\" at " + TimeStampHelper.now());
+        }
 
         //close session
         driver.close();

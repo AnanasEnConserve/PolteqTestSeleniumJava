@@ -21,12 +21,14 @@ public class TestFeature extends GeneralTest{
         homePage.signUp("Jan", "12345");
     }
 
+
     @Then("this should not work")
     public void shouldnotwork(){
         homePage = PageObject.getHomePage();
         softAssertions.assertThat(homePage.isSomethingLoaded()).as("Did not see header but expected to").isTrue();
         softAssertions.assertAll();
     }
+
 
 
 }
