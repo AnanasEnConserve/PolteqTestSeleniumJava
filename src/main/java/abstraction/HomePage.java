@@ -16,7 +16,7 @@ public class HomePage extends PageObject {
     private static final By passwordField = By.xpath("//input[@type='password']");
     private static final By submitLoginButton = By.id("submit-login");
 
-    HomePage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 

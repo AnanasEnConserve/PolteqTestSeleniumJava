@@ -11,7 +11,7 @@ public class TestFeature extends GeneralTest{
 
     @Given("I am on the homepage")
     public void iAmOnTheHomepage(){
-        homePage = PageObject.getHomePage();
+        homePage = new HomePage(driver);
         softAssertions.assertThat(homePage.isHeaderLoaded()).as("Did not see header but expected to").isTrue();
         softAssertions.assertAll();
     }
@@ -23,8 +23,8 @@ public class TestFeature extends GeneralTest{
 
 
     @Then("this should not work")
-    public void shouldnotwork(){
-        homePage = PageObject.getHomePage();
+    public void shouldNotWork(){
+        homePage = new HomePage(driver);
         softAssertions.assertThat(homePage.isSomethingLoaded()).as("Did not see header but expected to").isTrue();
         softAssertions.assertAll();
     }

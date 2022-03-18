@@ -9,7 +9,6 @@ Feature: Test Login functionality
     Given I have done this correctly
     Then this should work
 
-
   @test
   Scenario: Click on sign up button 1
     Given I am on the homepage

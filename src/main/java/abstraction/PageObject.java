@@ -11,9 +11,7 @@ public class PageObject {
         PageObject.driver = driver;
     }
 
-    public static HomePage getHomePage() {
-        return new HomePage(driver);
-    }
+
 
 //    public HomePage getHomepage(){
 //        return new HomePage(driver);
