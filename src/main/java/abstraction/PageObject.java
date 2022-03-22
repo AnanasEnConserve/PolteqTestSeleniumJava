@@ -13,6 +13,17 @@ public class PageObject {
 
 
 
+    public static ProductsPage getProductsPage() {
+        ProductsPage pp = new ProductsPage(driver);
+        return new ProductsPage(driver);
+    }
+
+    public WebDriver getDriver(){
+        return driver;
+    }
+
+
+
 //    public HomePage getHomepage(){
 //        return new HomePage(driver);
 //    }

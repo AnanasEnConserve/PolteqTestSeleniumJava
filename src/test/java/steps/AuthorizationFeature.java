@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 
-public class AuthorizationFeature extends GeneralTest{
+public class AuthorizationFeature {
 
     @Given("I have done this correctly")
     public void test(){
@@ -17,5 +17,9 @@ public class AuthorizationFeature extends GeneralTest{
         System.out.println("yep");
     }
 
+    @Given("aap")
+    public void aap(){
+
+    }
 
 }

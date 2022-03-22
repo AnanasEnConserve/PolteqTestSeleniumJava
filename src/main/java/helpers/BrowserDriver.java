@@ -10,8 +10,8 @@ public enum BrowserDriver {
     FireFoxRemote("firefox",
             "remote");
 
-    private String browserName;
-    private String driverType;
+    private final String browserName;
+    private final String driverType;
 
     BrowserDriver(String browserName, String driverType){
         this.browserName = browserName;
