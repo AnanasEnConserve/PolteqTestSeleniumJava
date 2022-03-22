@@ -12,8 +12,7 @@ public class TestFeature extends GeneralTest{
 
     @Given("I am on the homepage")
     public void iAmOnTheHomepage(){
-        homePage = PageObject.getHomePage();
-        System.out.println("Added breakpoints here!!!!!!!");
+        homePage = new HomePage(driver);
         softAssertions.assertThat(homePage.isHeaderLoaded()).as("Did not see header but expected to").isTrue();
         softAssertions.assertAll();
     }
@@ -25,8 +24,6 @@ public class TestFeature extends GeneralTest{
 
 
 
-
-
     @Then("I should be shown the kleding selection")
     public void iShouldBeShownTheKledingSelection() {
     }
@@ -34,6 +31,13 @@ public class TestFeature extends GeneralTest{
     @When("I click on kleding")
     public void iClickOnKleding() {
         homePage.clickOnKledingButton();
+
+    @Then("this should not work")
+    public void shouldNotWork(){
+        homePage = new HomePage(driver);
+        softAssertions.assertThat(homePage.isSomethingLoaded()).as("Did not see header but expected to").isTrue();
+        softAssertions.assertAll();
+
     }
 
     @When("I click on kunst")

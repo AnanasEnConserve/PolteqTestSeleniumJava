@@ -13,12 +13,15 @@ public class HomePage extends PageObject {
     private static final By emailField = By.xpath("//div[contains(@class,'form-group')]//input[@name='email']");
     private static final By passwordField = By.xpath("//input[@type='password']");
     private static final By submitLoginButton = By.id("submit-login");
+
     private static final By selectKledingButton = By.id("category-3");
     private static final By selectKunstButton = By.id("category-9");
     private static final By selectAccessoiresButton= By.id("category-6");
     private static final By selectPolteqButton= By.id("category-10");
     private static final By mainHeader = By.xpath("//*[@id='js-product-list-header']/div/h1");
-    HomePage(WebDriver driver) {
+   
+
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 

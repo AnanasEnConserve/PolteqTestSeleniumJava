@@ -9,9 +9,9 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import java.util.Properties;
 
-public class SetupTeardown {
+public class SetupTeardown extends GeneralTest{
 
-    public static WebDriver driver;
+
 
     @Before
     public void setup(Scenario scenario){
@@ -28,7 +28,7 @@ public class SetupTeardown {
         //Set driver
         new PageObject(driver);
         //Load initial page
-        driver.get(Environment.valueOf(System.getProperty("env")).getApplicationUrl());
+        driver.get(environment.getApplicationUrl());
         driver.manage().window().fullscreen();
     }
 
