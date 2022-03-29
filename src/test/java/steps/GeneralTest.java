@@ -13,5 +13,6 @@ public class GeneralTest {
     /*
     Request spec - voor API calls
      */
+    protected final String apiKey = "9RJ5AD13EW7YU74J7K7FSKWY9J2VNAZ5";
 
 }
