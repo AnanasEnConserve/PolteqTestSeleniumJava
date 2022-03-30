@@ -5,18 +5,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 
 public class apiOne extends GeneralTest {
 
     @Given("I log in with valid credentials")
     public Response attemptAccessWithValidCredentials(){
-        return RestAssured.given().baseUri(environment.getApiUrl() + "/api")
+        return RestAssured.given().auth()
+                .basic(apiKey, "")
                 .when()
-                .formParam("username", apiKey)
-                .and().formParam("password", "")
-                .and().post();
-                //.then().log().status();
+                .get(environment.getApiUrl() + "/api")
+                .then().extract().response();
     }
 
     @Then("I should get a {int} response")
@@ -25,11 +23,4 @@ public class apiOne extends GeneralTest {
         softAssertions.assertAll();
     }
 
-//
-//    public void getAccessWithValidCredentials() {
-//
-//        RestAssured.given().baseUri(environment.getApiUrl())
-//                .and().header().and().post()
-//                .then().log().status();
-//    }
 }
