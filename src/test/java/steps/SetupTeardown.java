@@ -19,6 +19,14 @@ public class SetupTeardown extends GeneralTest{
     public void setup(Scenario scenario){
         System.out.println("running before ");
         Properties properties = System.getProperties();
+        //Print some information about the test being run
+        System.out.println("Running scenario " + scenario.getName());
+
+        /*
+        Below steps are only for FE tests and can be skipped in API test
+        No selenium driver is required for API tests
+         */
+        if (!scenario.getSourceTagNames().contains("@api")) {
         System.out.println("userdir" + System.getProperty("user.dir"));
         System.out.println("Driver: " + System.getProperty("driver"));
         //Get driver
@@ -27,14 +35,12 @@ public class SetupTeardown extends GeneralTest{
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 
-        //Print some information about the test being run
-        System.out.println("Running scenario " + scenario.getName());
-
-        //Set driver
-        new PageObject(driver);
-        //Load initial page
-        driver.get(environment.getApplicationUrl());
-        driver.manage().window().fullscreen();
+            //Set driver in POM
+            new PageObject(driver);
+            //Load initial page
+            driver.get(environment.getApplicationUrl());
+            driver.manage().window().fullscreen();
+        }
     }
 
 
@@ -46,17 +52,18 @@ public class SetupTeardown extends GeneralTest{
         System.out.println("Ending scenario " + scenario.getName());
         System.out.println("Status " + scenario.getStatus());
 
-        //Take screenshot if test failed
-        if (scenario.isFailed()){
-            final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Failed test \"" + scenario.getName() + "\" at " + TimeStampHelper.now());
+        if (!scenario.getSourceTagNames().contains("@api")) {
+            //Take screenshot if test failed (only relevant for FE tests)
+            if (scenario.isFailed()) {
+                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                scenario.attach(screenshot, "image/png", "Failed test \"" + scenario.getName() + "\" at " + TimeStampHelper.now());
+            }
+
+
+            //close session
+            driver.close();
+            driver.quit();
         }
-
-
-        //close session
-        driver.close();
-        driver.quit();
-
     }
 
 

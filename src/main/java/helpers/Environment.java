@@ -9,7 +9,7 @@ public enum Environment {
     Acceptance( "acc",
             "npto-acc.polteq-testing.com",
             "https://npto-acc.polteq-testing.com/index.php",
-            " https://npto-acc.polteq-testing.com/admin123",
+            "https://npto-acc.polteq-testing.com", //admin123
             "https://adminer-npto-acc.polteq-testing.com/"),
     Production("prod",
             "npto-prod.polteq-testing.com",
